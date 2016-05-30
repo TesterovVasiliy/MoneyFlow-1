@@ -96,8 +96,6 @@ public class AddNewExpencyDialog extends DialogFragment implements LoaderManager
                 new int[]{android.R.id.text1},
                 Adapter.NO_SELECTION);
         acNameOfExpenses.setAdapter(simpleCursorAdapter);
-
-
         }
 
         @Override

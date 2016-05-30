@@ -75,10 +75,12 @@ public class MyContentProvider extends ContentProvider {
             case URI_CODE_EXPENSE:
                 id = database.insert(Prefs.TABLE_EXPENSES, null, values);
                 insertUri = ContentUris.withAppendedId(uri, id);
+                getContext().getContentResolver().notifyChange(uri,null);
                 return insertUri;
             case URI_CODE_EXPENSE_NAME:
                 id = database.insert(Prefs.TABLE_EXPENSES_NAMES, null, values);
                 insertUri = ContentUris.withAppendedId(uri, id);
+                getContext().getContentResolver().notifyChange(uri,null);
                 return insertUri;
             default:
                 throw new IllegalArgumentException("Unsupported uri -> " + uri);
@@ -109,6 +111,7 @@ public class MyContentProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unsupported uri -> " + uri);
         }
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
         return cursor;
     }
 
