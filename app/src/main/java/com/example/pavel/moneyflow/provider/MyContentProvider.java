@@ -43,7 +43,7 @@ public class MyContentProvider extends ContentProvider {
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         int result = 0;
-        switch (matcher.match(uri)){
+        switch (matcher.match(uri)) {
             case URI_CODE_EXPENSE:
                 database = dbHelper.getWritableDatabase();
                 result = database.delete(Prefs.TABLE_EXPENSES, selection, selectionArgs);
@@ -71,7 +71,7 @@ public class MyContentProvider extends ContentProvider {
         Uri insertUri = null;
         long id;
 
-        switch (matcher.match(uri)){
+        switch (matcher.match(uri)) {
             case URI_CODE_EXPENSE:
                 id = database.insert(Prefs.TABLE_EXPENSES, null, values);
                 insertUri = ContentUris.withAppendedId(uri, id);
@@ -90,7 +90,7 @@ public class MyContentProvider extends ContentProvider {
                         String[] selectionArgs, String sortOrder) {
         database = dbHelper.getWritableDatabase();
         Cursor cursor = null;
-        switch (matcher.match(uri)){
+        switch (matcher.match(uri)) {
             case URI_CODE_EXPENSE:
                 cursor = database.query(Prefs.TABLE_EXPENSES, projection, selection,
                         selectionArgs, null, null, sortOrder);

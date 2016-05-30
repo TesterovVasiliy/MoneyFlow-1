@@ -30,4 +30,7 @@ public class Prefs {
     public static final String TABLE_EXPENSES_NAMES = "expenses_names";
     public static final String EXPENCE_NAMES_FIELDS_NAME = "name";
 
+    //_________________Loader Constants_________________________________
+    public static final int ID_LOADER_EXPENSE_NAMES = 1;
+
 }
